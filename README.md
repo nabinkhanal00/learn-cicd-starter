@@ -1,3 +1,4 @@
+![code coverage badge](https://github.com/nabinkhanal00/learn-cicd-starter/workflows/ci/badge.svg)
 # learn-cicd-starter (Notely)
 
 This repo contains the starter code for the "Notely" application for the "Learn CICD" course on [Boot.dev](https://boot.dev).
