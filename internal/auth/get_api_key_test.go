@@ -13,7 +13,7 @@ func TestGetAPIKey(t *testing.T) {
 	key := "abcdef"
 	headerValue := "ApiKey " + key
 	h.Set("Authorization", headerValue)
-	if val, err := GetAPIKey(h); val != headerValue {
+	if val, err := GetAPIKey(h); val != key {
 		t.Errorf("Expected %v but got %v; err=%v", key, val, err)
 	}
 }
