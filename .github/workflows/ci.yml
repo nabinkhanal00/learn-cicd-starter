@@ -15,7 +15,28 @@ jobs:
         uses: actions/setup-go@v6
         with:
           go-version: "1.26.0"
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
       - name: Run go tests
         run: go test ./... -v -cover
+      - name: Run go security checks
+        run: gosec ./...
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+      - name: Set up go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.26.0"
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+      - name: Check styling
+        run: test -z $(go fmt ./...)
+      - name: Check linting
+        run: staticcheck ./...
 
 
